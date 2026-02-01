@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Proposal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body { 
+            text-align: center; 
+            background-color: #f7e1e6; 
+            font-family: 'Nunito', sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; 
+            width: 100%;
+        }
+
+        h1 { 
+            color: #d32f2f; 
+            font-size: 2rem; 
+            margin: 0;
+            line-height: 1.2;
+            max-width: 90%;
+        }
+
+        img { 
+            width: 100%; 
+            max-width: 350px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+            object-fit: cover;
+        }
+
+        .buttons { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button { 
+            padding: 15px 30px; 
+            font-size: 1.2rem; 
+            border: none; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            min-width: 120px; 
+            transition: transform 0.2s;
+        }
+        
+        button:active { transform: scale(0.95); }
+
+        #yesBtn { background-color: #ff4081; color: white; }
+        #nextYearBtn { background-color: white; color: #555; }
+        
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="questionScreen" class="content-wrapper">
+        <h1>Yoo Camila would you be my valentine😭</h1>
+        <img src="IMG_2606.gif" alt="Begging Cat"> 
+        
+        <div class="buttons">
+            <button id="yesBtn" onclick="acceptLove()">Yes 💖</button>
+            <button id="nextYearBtn" onclick="rejectLove()">Next Year</button>
+        </div>
+    </div>
+
+    <div id="successScreen" class="hidden content-wrapper">
+        <img src="IMG_2601.gif" alt="Celebration">
+        <h1>LETSGOO<br>Here is a digital flower in advance 🌹</h1>
+    </div>
+
+    <div id="nextYearScreen" class="hidden content-wrapper">
+        <img src="IMG_2602.gif" alt="Sad">
+        <h1>No worries, it's chill 🥲 just going to kms 🥀</h1>
+    </div>
+
+    <script>
+        function acceptLove() {
+            document.getElementById('questionScreen').classList.add('hidden');
+            document.getElementById('successScreen').classList.remove('hidden');
+            document.getElementById('successScreen').style.display = 'flex'; 
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        }
+        function rejectLove() {
+            document.getElementById('questionScreen').classList.add('hidden');
+            document.getElementById('nextYearScreen').classList.remove('hidden');
+            document.getElementById('nextYearScreen').style.display = 'flex'; 
+        }
+    </script>
+</body>
+</html>
