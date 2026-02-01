@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Very Important Question</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body { text-align: center; background-color: #f7e1e6; font-family: 'Nunito', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        h1 { color: #d32f2f; font-size: 1.8rem; margin: 15px; padding: 0 15px; }
+        img { width: 80%; max-width: 300px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .buttons { display: flex; gap: 15px; }
+        button { padding: 12px 25px; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; }
+        #yesBtn { background-color: #ff4081; color: white; }
+        #nextYearBtn { background-color: white; color: #555; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="questionScreen">
+        <img src="IMG_2606.gif" alt="Begging Cat"> 
+        <h1>Yoo Camila would you be my valentine😭</h1>
+        <div class="buttons">
+            <button id="yesBtn" onclick="acceptLove()">Yes 💖</button>
+            <button id="nextYearBtn" onclick="rejectLove()">Next Year</button>
+        </div>
+    </div>
+
+    <div id="successScreen" class="hidden">
+        <img src="IMG_2601.gif" alt="Squid Game">
+        <h1>LESSS GOOOO! Best choice ever! 🥳</h1>
+    </div>
+
+    <div id="nextYearScreen" class="hidden">
+        <img src="IMG_2602.gif" alt="Sad Guy">
+        <h1>Understandable. Have a nice day. 🥲</h1>
+    </div>
+
+    <script>
+        function acceptLove() {
+            document.getElementById('questionScreen').classList.add('hidden');
+            document.getElementById('successScreen').classList.remove('hidden');
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        }
+        function rejectLove() {
+            document.getElementById('questionScreen').classList.add('hidden');
+            document.getElementById('nextYearScreen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
